@@ -1,62 +1,60 @@
 // Service Worker for PassVault PWA
 
 const CACHE_NAME = "passvault-cache-v1";
-const urlsToCache = [
-  "/",
-  "/index.html",
-  "/manifest.json", // 快取 manifest.json
 
-  // 快取圖示檔案
-  "/favicon.ico",
-  "/assets/icons/icon-192x192.png",
-  "/assets/icons/icon-512x512.png",
+const urlsToCache = [
+  "index.html",
+  "manifest.json",
+  "favicon.ico",
+  "assets/icons/icon-192x192.png",
+  "assets/icons/icon-512x512.png",
 
   // CSS Files
-  "/css/base.css",
-  "/css/animations.css",
-  "/css/components/bottom-nav-bar.css",
-  "/css/components/change-master-password-modal.css",
-  "/css/components/change-login-password-modal.css",
-  "/css/components/custom-select.css",
-  "/css/components/draggable.css",
-  "/css/components/edit-modal.css",
-  "/css/components/export-modal.css",
-  "/css/components/import-modal.css",
-  "/css/components/login-page.css",
-  "/css/components/name-edit-modal.css",
-  "/css/components/notification-center.css",
-  "/css/components/password-item.css",
-  "/css/components/search-bar.css",
-  "/css/components/settings-page.css",
-  "/css/components/tags-and-categories-page.css",
-  "/css/components/unlock-page.css",
+  "css/base.css",
+  "css/animations.css",
+  "css/components/bottom-nav-bar.css",
+  "css/components/change-login-password-modal.css",
+  "css/components/change-master-password-modal.css",
+  "css/components/custom-select.css",
+  "css/components/draggable.css",
+  "css/components/edit-modal.css",
+  "css/components/export-modal.css",
+  "css/components/import-modal.css",
+  "css/components/login-page.css",
+  "css/components/name-edit-modal.css",
+  "css/components/notification-center.css",
+  "css/components/password-item.css",
+  "css/components/search-bar.css",
+  "css/components/settings-page.css",
+  "css/components/tags-and-categories-page.css",
+  "css/components/unlock-page.css",
 
   // JS Files
-  "/js/main.js",
-  "/js/App.js",
-  "/js/store.js",
-  "/js/crypto.js",
-  "/js/firebase.js",
-  "/js/icons.js",
-  "/js/utils.js",
+  "js/main.js",
+  "js/App.js",
+  "js/store.js",
+  "js/crypto.js",
+  "js/firebase.js",
+  "js/icons.js",
+  "js/utils.js",
 
   // JS Components
-  "/js/components/BottomNavBar.js",
-  "/js/components/ChangeMasterPasswordModal.js",
-  "/js/components/ChangeLoginPasswordModal.js",
-  "/js/components/CustomSelect.js",
-  "/js/components/EditModal.js",
-  "/js/components/ExportModal.js",
-  "/js/components/HomePage.js",
-  "/js/components/ImportModal.js",
-  "/js/components/LoginPage.js",
-  "/js/components/NameEditModal.js",
-  "/js/components/NotificationCenter.js",
-  "/js/components/PasswordItem.js",
-  "/js/components/PinnedPage.js",
-  "/js/components/SettingsPage.js",
-  "/js/components/TagsAndCategoriesPage.js",
-  "/js/components/UnlockPage.js",
+  "js/components/BottomNavBar.js",
+  "js/components/ChangeLoginPasswordModal.js",
+  "js/components/ChangeMasterPasswordModal.js",
+  "js/components/CustomSelect.js",
+  "js/components/EditModal.js",
+  "js/components/ExportModal.js",
+  "js/components/HomePage.js",
+  "js/components/ImportModal.js",
+  "js/components/LoginPage.js",
+  "js/components/NameEditModal.js",
+  "js/components/NotificationCenter.js",
+  "js/components/PasswordItem.js",
+  "js/components/PinnedPage.js",
+  "js/components/SettingsPage.js",
+  "js/components/TagsAndCategoriesPage.js",
+  "js/components/UnlockPage.js",
 
   // CDN Libraries
   "https://unpkg.com/vue@3/dist/vue.global.js",
@@ -69,6 +67,7 @@ const urlsToCache = [
   "https://esm.sh/lucide-vue-next",
 ];
 
+// 1. 安裝 Service Worker
 self.addEventListener("install", (event) => {
   console.log("[Service Worker] Install");
   event.waitUntil(
@@ -79,6 +78,7 @@ self.addEventListener("install", (event) => {
   );
 });
 
+// 2. 啟用 Service Worker
 self.addEventListener("activate", (event) => {
   console.log("[Service Worker] Activate");
   event.waitUntil(
@@ -96,6 +96,7 @@ self.addEventListener("activate", (event) => {
   return self.clients.claim();
 });
 
+// 3. 攔截網路請求
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") {
     return;
@@ -114,7 +115,9 @@ self.addEventListener("fetch", (event) => {
         return response;
       })
       .catch(() => {
-        console.log(`[Service Worker] Fetch failed for ${event.request.url}, trying cache.`);
+        console.log(
+          `[Service Worker] Fetch failed for ${event.request.url}, trying cache.`
+        );
         return caches.match(event.request).then((response) => {
           if (response) {
             return response;
