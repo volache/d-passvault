@@ -1,0 +1,57 @@
+.unlock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 24px;
+  background-color: var(--bg-color);
+}
+
+.unlock-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  background-color: var(--card-bg-color);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.unlock-card .lucide {
+  width: 48px;
+  height: 48px;
+  color: var(--primary-color);
+  margin: 0 auto 16px auto;
+}
+
+.unlock-card h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.unlock-card p {
+  color: var(--text-color-secondary);
+  margin-bottom: 24px;
+}
+
+.unlock-card .form-group input {
+  width: 100%;
+  text-align: center; /* 讓金鑰輸入置中 */
+}
+
+.unlock-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+  margin-top: 12px;
+}

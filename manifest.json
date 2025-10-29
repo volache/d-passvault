@@ -1,0 +1,25 @@
+{
+  "name": "PassVault 密碼管理工具",
+  "short_name": "PassVault",
+  "description": "一個安全、可靠的個人密碼管理工具。",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#1c1c1e",
+  "theme_color": "#007bff",
+  "scope": "/",
+  "orientation": "portrait-primary"
+}

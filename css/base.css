@@ -1,0 +1,110 @@
+/* --- 全域 CSS 變數 --- */
+:root {
+  --bg-color: #f0f2f5;
+  --card-bg-color: #ffffff;
+  --text-color-primary: #1a1a1a;
+  --text-color-secondary: #6b7280;
+  --primary-color: #007bff;
+  --primary-color-light: #e6f2ff;
+  --border-color: #e5e7eb;
+  --nav-icon-color: #888888;
+  --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --toast-bg-color: #323232;
+  --toast-text-color: #ffffff;
+  --transition-speed: 0.3s;
+
+  /* Z-Index Management */
+  --z-index-content: 1;
+  --z-index-bottom-nav: 900;
+  --z-index-modal-overlay: 1000;
+  --z-index-modal-content: 1010;
+  --z-index-select-dropdown: 1020;
+  --z-index-notification: 2000;
+}
+
+/* --- 暗黑模式變數 --- */
+html.dark {
+  --bg-color: #1c1c1e;
+  --card-bg-color: #2c2c2e;
+  --text-color-primary: #f2f2f7;
+  --text-color-secondary: #8d8d92;
+  --primary-color: #4dabf7;
+  --primary-color-light: rgba(77, 171, 247, 0.15);
+  --border-color: #444446;
+  --nav-icon-color: #8d8d92;
+  --toast-bg-color: #f0f0f0;
+  --toast-text-color: #121212;
+}
+
+/* --- 基礎樣式 --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--bg-color);
+  color: var(--text-color-primary);
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* --- 主要 App 佈局 --- */
+#app {
+  height: 100vh;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background-color: var(--card-bg-color);
+  transition: background-color var(--transition-speed) ease;
+}
+
+.page-header {
+  padding: 24px 16px 16px 16px;
+  background-color: var(--card-bg-color);
+  flex-shrink: 0;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 24px 16px 80px 16px;
+  background-color: var(--bg-color);
+  transition: background-color var(--transition-speed) ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- 通用狀態樣式 --- */
+.empty-state {
+  text-align: center;
+  margin-top: 40px;
+  color: var(--text-color-secondary);
+}
+
+.empty-state p {
+  margin-bottom: 8px;
+}

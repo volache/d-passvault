@@ -1,0 +1,116 @@
+/* 全局通知中心 */
+.notification-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-index-notification);
+  pointer-events: none;
+}
+
+/* Toast 樣式 */
+.toast-notification {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--toast-bg-color);
+  color: var(--toast-text-color);
+  padding: 12px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: all;
+}
+
+.toast-clear-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--toast-text-color);
+  border-radius: 15px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+html.dark .toast-clear-button {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Dialog（Alert/Confirm）樣式 */
+.dialog-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dialog-content {
+  background-color: var(--card-bg-color);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 340px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 24px;
+  pointer-events: all;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.dialog-content h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+.dialog-content p {
+  font-size: 15px;
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+.dialog-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.dialog-actions button {
+  flex: 1;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+/* 確認按鈕繼承 .save-button 樣式 */
+.dialog-actions .confirm-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+/* 取消按鈕繼承 .cancel-button 樣式 */
+.dialog-actions .cancel-button {
+  background-color: #e9ecef;
+  color: var(--text-color-secondary);
+}
+/* 紅色危險操作按鈕 */
+.dialog-actions .confirm-button.danger {
+  background-color: #dc3545;
+}
+html.dark .dialog-actions .cancel-button {
+  background-color: #3a3a3c;
+  color: var(--text-color-primary);
+}

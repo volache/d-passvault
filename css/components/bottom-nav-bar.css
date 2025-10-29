@@ -1,0 +1,65 @@
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: var(--card-bg-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-bottom: 5px;
+  flex-shrink: 0;
+  transition: background-color var(--transition-speed) ease, border-top var(--transition-speed) ease;
+  z-index: var(--z-index-bottom-nav);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--nav-icon-color);
+  transition: color 0.2s ease;
+  font-size: 10px;
+  width: 60px;
+  height: 100%;
+}
+
+.nav-item .lucide {
+  margin-bottom: 4px;
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+}
+
+.nav-item-add {
+  position: relative;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.add-button {
+  background-color: var(--primary-color);
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  transform: translateY(-20px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-button:active {
+  transform: translateY(-20px) scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+}

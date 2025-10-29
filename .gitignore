@@ -1,0 +1,9 @@
+# 忽略本地的 Firebase 配置文件
+js/firebase-config.js
+
+# 忽略 Node.js 模組（如果未來使用）
+node_modules/
+
+# 忽略作業系統產生的檔案
+.DS_Store
+Thumbs.db

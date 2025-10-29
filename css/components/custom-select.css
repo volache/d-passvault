@@ -1,0 +1,53 @@
+.custom-select {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+}
+.select-selected {
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color-primary);
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+html.dark .select-selected {
+  background-color: #3a3a3c;
+}
+.select-selected.open {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+.select-items-container {
+  position: absolute;
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: var(--z-index-select-dropdown);
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+.select-items-container div {
+  padding: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color-primary);
+  transition: border-bottom var(--transition-speed) ease;
+}
+.select-items-container div:last-child {
+  border-bottom: none;
+}
+.select-items-container div:hover {
+  background-color: var(--bg-color);
+}
+html.dark .select-items-container div:hover {
+  background-color: #3a3a3c;
+}
