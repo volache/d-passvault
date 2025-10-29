@@ -119,7 +119,7 @@ PassVault 是一個基於 Vue 3 和 Firebase 的現代化、輕量級密碼管�
         workflow_dispatch:
 
       permissions:
-        contents: write
+        contents: read
         pages: write
         id-token: write
 
@@ -128,23 +128,30 @@ PassVault 是一個基於 Vue 3 和 Firebase 的現代化、輕量級密碼管�
         cancel-in-progress: true
 
       jobs:
-        build-and-deploy:
+        build:
           runs-on: ubuntu-latest
           steps:
             - name: Checkout
               uses: actions/checkout@v4
-
             - name: Create Firebase Config
-              run: |
-                mkdir build
-                rsync -av --progress . ./build --exclude .git --exclude .github
-                echo "export const firebaseConfig = ${{ secrets.FIREBASE_CONFIG }};" > build/js/firebase-config.js
-
-            - name: Deploy to GitHub Pages
-              uses: peaceiris/actions-gh-pages@v3
+              run: echo "export const firebaseConfig = ${{ secrets.FIREBASE_CONFIG }};" > js/firebase-config.js
+            - name: Setup Pages
+              uses: actions/configure-pages@v4
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
               with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: ./build
+                path: "."
+
+        deploy:
+          environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+          runs-on: ubuntu-latest
+          needs: build
+          steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
       ```
 
 5.  **觸發部署**：
