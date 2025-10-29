@@ -30,12 +30,13 @@ const urlsToCache = [
   "css/components/unlock-page.css",
 
   // JS Files
-  "js/main.js",
+
   "js/App.js",
-  "js/store.js",
   "js/crypto.js",
   "js/firebase.js",
   "js/icons.js",
+  "js/main.js",
+  "js/store.js",
   "js/utils.js",
 
   // JS Components

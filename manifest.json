@@ -16,10 +16,10 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#1c1c1e",
   "theme_color": "#007bff",
-  "scope": "/",
+  "scope": ".",
   "orientation": "portrait-primary"
 }
