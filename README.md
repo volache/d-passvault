@@ -118,6 +118,15 @@ PassVault 是一個基於 Vue 3 和 Firebase 的現代化、輕量級密碼管�
             - main
         workflow_dispatch:
 
+      permissions:
+        contents: write
+        pages: write
+        id-token: write
+
+      concurrency:
+        group: "pages"
+        cancel-in-progress: true
+
       jobs:
         build-and-deploy:
           runs-on: ubuntu-latest
@@ -127,12 +136,8 @@ PassVault 是一個基於 Vue 3 和 Firebase 的現代化、輕量級密碼管�
 
             - name: Create Firebase Config
               run: |
-                # 建立一個 build 資料夾
                 mkdir build
-                # 將所有專案檔案複製到 build 資料夾
-                # 使用 rsync 可以更好地處理檔案，並排除 .git 資料夾
                 rsync -av --progress . ./build --exclude .git --exclude .github
-                # 在 build/js/ 資料夾內，從 secrets 生成 firebase-config.js
                 echo "export const firebaseConfig = ${{ secrets.FIREBASE_CONFIG }};" > build/js/firebase-config.js
 
             - name: Deploy to GitHub Pages
