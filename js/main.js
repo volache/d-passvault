@@ -34,13 +34,14 @@ app.mount("#app");
 // --- 註冊 Service Worker ---
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
+    // 使用相對路徑，這樣無論在哪個目錄下都能正確找到檔案
     navigator.serviceWorker
-      .register("/service-worker.js")
+      .register("service-worker.js")
       .then((registration) => {
-        console.log("Service Worker 註冊成功，作用域為：", registration.scope);
+        console.log("Service Worker 註冊成功，作用域為:", registration.scope);
       })
       .catch((error) => {
-        console.error("Service Worker 註冊失敗：", error);
+        console.error("Service Worker 註冊失敗:", error);
       });
   });
 }
