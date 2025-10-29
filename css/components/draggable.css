@@ -1,0 +1,20 @@
+.list-group {
+  min-height: 20px;
+}
+.drag-handle {
+  cursor: grab;
+  color: #c7c7cc;
+  padding: 10px 4px 10px 0;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+.drag-handle .lucide {
+  width: 20px;
+  height: 20px;
+}
+.ghost {
+  opacity: 0.5;
+  background: #c8ebfb;
+  border-radius: 16px;
+}

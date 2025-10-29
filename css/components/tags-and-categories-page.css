@@ -1,0 +1,116 @@
+.tac-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tac-tabs {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  transition: border-color var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+.tac-tab {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--text-color-secondary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tac-tab.active {
+  background-color: var(--card-bg-color);
+  color: var(--text-color-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tac-list-container {
+  position: relative;
+  min-height: 200px;
+}
+
+.tac-list-container .list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tac-list-container h2 {
+  font-size: 20px;
+}
+
+.tac-add-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tac-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tac-list-item {
+  display: flex;
+  /* justify-content: space-between; */ /* 由子元素 flex-grow 控制 */
+  align-items: center;
+  background-color: var(--card-bg-color);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.tac-list-item:active {
+  transform: scale(0.98);
+}
+
+.tac-item-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  pointer-events: none;
+  flex-grow: 1; /* 讓名稱部分佔滿剩餘空間 */
+}
+
+.item-count {
+  background-color: var(--bg-color);
+  color: var(--text-color-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.tac-item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.tac-item-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color-secondary);
+  padding: 4px;
+  margin-left: 8px;
+}

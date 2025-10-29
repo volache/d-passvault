@@ -1,0 +1,58 @@
+/* --- 頁面過場動畫（交叉淡入淡出） --- */
+.page-cross-fade-enter-active,
+.page-cross-fade-leave-active {
+  transition: opacity 0.25s ease-in-out;
+}
+.page-cross-fade-leave-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 16px;
+}
+.page-cross-fade-enter-from,
+.page-cross-fade-leave-to {
+  opacity: 0;
+}
+
+/* --- Modal 動畫 --- */
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.modal-fade-enter-active .modal-content,
+.modal-fade-leave-active .modal-content {
+  transition: transform 0.25s ease;
+}
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+.modal-fade-enter-from .modal-content,
+.modal-fade-leave-to .modal-content {
+  transform: scale(0.95);
+}
+
+/* --- Tab 內容切換動畫 --- */
+.tab-content-fade-enter-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition-delay: 0.1s;
+}
+.tab-content-fade-leave-active {
+  transition: opacity 0.1s ease;
+}
+.tab-content-fade-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.tab-content-fade-leave-to {
+  opacity: 0;
+}
+
+/* --- 通用的 Chevron 旋轉動畫 --- */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+.lucide-chevron-down {
+  transition: transform 0.2s ease-in-out;
+}

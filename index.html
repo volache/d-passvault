@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>PassVault 密碼管理工具</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/assets/icons/icon-192x192.png" type="image/png" sizes="192x192" />
+
+    <!-- PWA Manifest & Theme -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#007bff" />
+
+    <!-- Apple Touch Icon & PWA Meta Tags -->
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="PassVault" />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <!-- 引入所有元件的樣式表 -->
+    <link rel="stylesheet" href="css/components/search-bar.css" />
+    <link rel="stylesheet" href="css/components/password-item.css" />
+    <link rel="stylesheet" href="css/components/bottom-nav-bar.css" />
+    <link rel="stylesheet" href="css/components/edit-modal.css" />
+    <link rel="stylesheet" href="css/components/custom-select.css" />
+    <link rel="stylesheet" href="css/components/draggable.css" />
+    <link rel="stylesheet" href="css/components/settings-page.css" />
+    <link rel="stylesheet" href="css/components/export-modal.css" />
+    <link rel="stylesheet" href="css/components/import-modal.css" />
+    <link rel="stylesheet" href="css/components/tags-and-categories-page.css" />
+    <link rel="stylesheet" href="css/components/name-edit-modal.css" />
+    <link rel="stylesheet" href="css/components/login-page.css" />
+    <link rel="stylesheet" href="css/components/unlock-page.css" />
+    <link rel="stylesheet" href="css/components/change-master-password-modal.css" />
+    <link rel="stylesheet" href="css/components/change-login-password-modal.css" />
+    <link rel="stylesheet" href="css/components/notification-center.css" />
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <!-- Vue & VueDraggable CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuedraggable@4.1.0/dist/vuedraggable.umd.min.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <!-- 加密函式庫 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <!-- 主程式入口 -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
