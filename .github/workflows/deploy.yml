@@ -24,17 +24,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create Firebase Config
+      - name: Create Firebase Config from Template
         run: |
-          mkdir -p js
-          echo "export const firebaseConfig = {" > js/firebase-config.js
-          echo "  apiKey: \"${{ secrets.VUE_APP_API_KEY }}\"," >> js/firebase-config.js
-          echo "  authDomain: \"${{ secrets.VUE_APP_AUTH_DOMAIN }}\"," >> js/firebase-config.js
-          echo "  projectId: \"${{ secrets.VUE_APP_PROJECT_ID }}\"," >> js/firebase-config.js
-          echo "  storageBucket: \"${{ secrets.VUE_APP_STORAGE_BUCKET }}\"," >> js/firebase-config.js
-          echo "  messagingSenderId: \"${{ secrets.VUE_APP_MESSAGING_SENDER_ID }}\"," >> js/firebase-config.js
-          echo "  appId: \"${{ secrets.VUE_APP_APP_ID }}\"" >> js/firebase-config.js
-          echo "};" >> js/firebase-config.js
+          cp js/firebase-config.template.js js/firebase-config.js
+          sed -i 's|__API_KEY__|${{ secrets.VUE_APP_API_KEY }}|g' js/firebase-config.js
+          sed -i 's|__AUTH_DOMAIN__|${{ secrets.VUE_APP_AUTH_DOMAIN }}|g' js/firebase-config.js
+          sed -i 's|__PROJECT_ID__|${{ secrets.VUE_APP_PROJECT_ID }}|g' js/firebase-config.js
+          sed -i 's|__STORAGE_BUCKET__|${{ secrets.VUE_APP_STORAGE_BUCKET }}|g' js/firebase-config.js
+          sed -i 's|__MESSAGING_SENDER_ID__|${{ secrets.VUE_APP_MESSAGING_SENDER_ID }}|g' js/firebase-config.js
+          sed -i 's|__APP_ID__|${{ secrets.VUE_APP_APP_ID }}|g' js/firebase-config.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
